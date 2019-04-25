@@ -1,0 +1,39 @@
+<div nz-row nzAlign="middle" nzJustify="center" style="margin-top: 200px">
+    <div nz-col nzSpan="8" nzOffset="8">
+        <div style="text-align: center">
+            <!-- <img src="assets/images/dova1.png" height="50px" alt=""> -->
+            <p style="text-transform: uppercase; margin-top: 15px">Sign in to your account</p>
+        </div>
+
+        <form nz-form [formGroup]="validateForm" class="login-form">
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group [nzPrefix]="prefixUser">
+                        <input type="text" nz-input formControlName="userName" placeholder="Username">
+                    </nz-input-group>
+                    <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">Please input your username!</nz-form-explain>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group [nzPrefix]="prefixLock">
+                        <input type="password" nz-input formControlName="password" placeholder="Password">
+                    </nz-input-group>
+                    <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">Please input your Password!</nz-form-explain>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <label nz-checkbox formControlName="remember">
+          <span>Remember me</span>
+        </label>
+                    <a class="login-form-forgot" class="login-form-forgot">Forgot password</a>
+                    <button nz-button type="submit" class="login-form-button" [nzType]="'primary'" (click)="Login(validateForm.value)">Log in</button>
+                    <!-- <a href="">register now!</a> -->
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+        <ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+        <ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>
+    </div>
+</div>

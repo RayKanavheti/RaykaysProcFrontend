@@ -1,0 +1,59 @@
+<header class="clearfix" id="header">
+    <nz-layout class="layout">
+        <nz-header>
+            <div class="logo"></div>
+            <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+                <li nz-menu-item>nav 1</li>
+                <li nz-menu-item>nav 2</li>
+                <li nz-menu-item>nav 3</li>
+            </ul>
+        </nz-header>
+        <nz-layout>
+            <nz-sider [nzWidth]="200" style="background:#fff">
+                <ul nz-menu [nzMode]="'inline'" style="height:100%">
+                    <li nz-submenu routerLink="/admin/home">
+                        <span title><i nz-icon type="user"></i>Home</span>
+                    </li>
+                    <li nz-submenu>
+                        <span title><i nz-icon type="laptop"></i>Orders</span>
+                        <ul>
+                            <li nz-menu-item routerLink="/admin/orders">Order List</li>
+                            <li nz-menu-item routerLink="/admin/create-order">Create an Order</li>
+                            <li nz-menu-item>option7</li>
+                            <li nz-menu-item>option8</li>
+                        </ul>
+                    </li>
+                    <li nz-submenu>
+                        <span title><i nz-icon type="notification"></i>Quotations</span>
+                        <ul>
+                            <li nz-menu-item>option9</li>
+                            <li nz-menu-item>option10</li>
+                            <li nz-menu-item>option11</li>
+                            <li nz-menu-item>option12</li>
+                        </ul>
+                    </li>
+                    <li nz-submenu>
+                        <span title><i nz-icon type="notification"></i>User Management</span>
+                        <ul>
+                            <li nz-menu-item>option9</li>
+                            <li nz-menu-item>option10</li>
+                            <li nz-menu-item>option11</li>
+                            <li nz-menu-item>option12</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nz-sider>
+            <nz-layout style="padding:0 24px 24px">
+                <nz-breadcrumb style="margin:16px 0;">
+                    <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>List</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>App</nz-breadcrumb-item>
+                </nz-breadcrumb>
+                <nz-content style="background:#fff; padding: 24px; min-height: 850px;">
+                    <router-outlet></router-outlet>
+                </nz-content>
+            </nz-layout>
+        </nz-layout>
+        <nz-footer class="footer-d" style="text-align: center;">Ray Kays Procurement ©2019 powered By Ray Kanavheti</nz-footer>
+    </nz-layout>
+</header>

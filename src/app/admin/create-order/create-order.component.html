@@ -1,0 +1,28 @@
+<form [formGroup]="orderForm">
+
+    <nz-table #basicTable [nzData]="dat">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Product/Service Description</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody formArrayName="OrderProducts">
+            <tr *ngFor="let powerRequirement of productFormGroup.controls; let i = index" [formGroupName]="i">
+                <td> <input formControlName="Title" nz-input placeholder="Enter Title" /></td>
+                <td> <textarea rows="2" formControlName="Description" nz-input type="password" placeholder="Enter Product/Service Description.."></textarea></td>
+                <td><input formControlName="Quantity" nz-input placeholder="Enter Quantity" /></td>
+                <td>
+                    <button nz-button (click)="removeProduct(i)" *ngIf="productFormGroup.controls.length > 1" nzType="danger">Delete</button>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <button nz-button (click)="addProduct()" nzType="primary">Add</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</form>
+<!-- <ng-template #prefixUser><i nz-icon type="user"></i> [disabled]="!orderForm.valid"</ng-template>
+<ng-template #prefixLock><i nz-icon type="lock"></i></ng-template> -->
